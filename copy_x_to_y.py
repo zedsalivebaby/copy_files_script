@@ -9,6 +9,12 @@ from pathlib import Path
 
 #%% Fonction copiant des fichiers ou des dossiers
 def copy_files_folders(ls, src, dest, ls_exclude=''):
+    
+    # Identification de la classe de f
+    if isinstance(f, list):
+        ls = f
+    elif isinstance(f, str):
+        ls = [f]
     for f in ls:
         if f.name not in ls_exclude:
             src_f = src / f
@@ -52,15 +58,7 @@ src_path = Path('E:/')
 dest_path = Path('D:/Nergica/Collineo_windfarms/')
 
 #%% Dossier, dossiers, fichier, fichiers ou liste à copier 
-#f = ['log', 'MSE2020_declaration', 'Reports']
 f = [f for f in src_path.iterdir()]
-#ls_exclude = ['MSE2020']
 
-#%% Identification de la classe de f
-if isinstance(f, list):
-    ls = f
-elif isinstance(f, str):
-    ls = [f]
-    
 #%%  Appel de la fonction copy_files_folders  
-copy_files_folders(ls, src_path, dest_path, ls_exclude='')
+copy_files_folders(f, src_path, dest_path, ls_exclude='')
