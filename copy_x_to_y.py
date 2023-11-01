@@ -16,6 +16,7 @@ def copy_files_folders(f, src, dest, ls_exclude=''):
     elif isinstance(f, str):
         ls = [f]
     for f in ls:
+        print(f)
         if f.name not in ls_exclude:
             src_f = src / f
             print(src_f)
@@ -54,11 +55,12 @@ def copy_files_folders(f, src, dest, ls_exclude=''):
                     continue
             
 #%% Initialisation des répertoires
-src_path = Path('E:/')
-dest_path = Path('D:/Nergica/Collineo_windfarms/')
+src_path = Path('E:/MSE2020')
+dest_path = Path('D:/Nergica/Collineo_windfarms/test/MSE2020')
 
 #%% Dossier, dossiers, fichier, fichiers ou liste à copier 
 f = [f for f in src_path.iterdir()]
+ls_exclude = ['MSE2020']
 
 #%%  Appel de la fonction copy_files_folders  
-copy_files_folders(f, src_path, dest_path, ls_exclude='')
+copy_files_folders(f, src_path, dest_path, ls_exclude=ls_exclude)
