@@ -8,7 +8,7 @@ import os, shutil
 from pathlib import Path
 
 #%% Fonction copiant des fichiers ou des dossiers
-def copy_files_folders(ls, src, dest, ls_exclude=''):
+def copy_files_folders(f, src, dest, ls_exclude=''):
     
     # Identification de la classe de f
     if isinstance(f, list):
